@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+requests
+python-dotenv
+groq
+
+ docker run -p 6333:6333 qdrant/qdrant
