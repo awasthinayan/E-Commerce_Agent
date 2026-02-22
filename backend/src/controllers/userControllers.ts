@@ -33,3 +33,8 @@ export const updatePreferences = async (req: Request, res: Response) => {
 
   res.json(user);
 };
+
+export const getAllUsersController = async (req: Request, res: Response) => {
+  const users = await userService.getAllUsersService();
+  res.json(users);
+};

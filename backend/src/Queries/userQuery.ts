@@ -12,4 +12,9 @@ export class UserRepository {
   async updatePreferences(id: string, preferences: any) {
     return User.findByIdAndUpdate(id, { preferences }, { new: true });
   }
+
+  async getAllUsers() {
+    return User.find({});
+  }
 }
+

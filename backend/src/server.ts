@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/chat", chatRoutes);
-app.use("/api/users", userRoutes);
+app.use("/api", userRoutes);
 app.use("/ai", aiRoute);
 
 app.use(errorHandler);

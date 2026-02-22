@@ -3,5 +3,7 @@ uvicorn
 requests
 python-dotenv
 groq
-
- docker run -p 6333:6333 qdrant/qdrant
+qdrant-client
+numpy==1.26.4
+torch==2.2.2 --index-url https://download.pytorch.org/whl/cpu
+sentence-transformers==2.7.0

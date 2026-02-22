@@ -14,4 +14,8 @@ export class UserService {
   async updatePreferences(id: string, preferences: any) {
     return this.userRepo.updatePreferences(id, preferences);
   }
+
+  async getAllUsersService() {
+    return this.userRepo.getAllUsers();
+  }
 }
