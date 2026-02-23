@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const AI_BASE_URL = process.env.AI_BASE_URL as string;
+const AI_BASE_URL = process.env.AI_SERVICE_URL as string;
 const AI_TIMEOUT = Number(process.env.AI_TIMEOUT) || 5000;
 
 let failureCount = 0;

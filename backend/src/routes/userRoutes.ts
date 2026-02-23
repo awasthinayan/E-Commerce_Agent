@@ -10,9 +10,9 @@ const router = express.Router();
 
 
 router.post("/create/user", createUser);
-router.get("/user/:id", getUser);
-router.put("/:id/preferences", updatePreferences);
-router.get("/allUsers", getAllUsersController);
+router.get("/allusers", getAllUsersController);
+router.get("/users/:id", getUser);
+router.put("/users/:id/preferences", updatePreferences);
 
 
 export default router;

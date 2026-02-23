@@ -24,7 +24,15 @@ class ResearchRequest(BaseModel):
 @app.post("/research")
 async def research(req: ResearchRequest):
     result = research_service.run(req.query, req.mode)
-    return {"response": result}
+
+    content = result["choices"][0]["message"]["content"]
+
+    return {
+        "response": content,
+        "tokens": result["usage"]["total_tokens"],
+        "cost": 0,
+        "confidence": 0.95
+    }
 
 
 @app.post("/seed")

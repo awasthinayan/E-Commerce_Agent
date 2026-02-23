@@ -59,3 +59,29 @@ Contributions are welcome! If you have any suggestions or improvements, please o
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
+
+## Testing Data 
+
+{
+    "name": "Nayan Awasthi",
+    "email": "nayanawasthi2015@gmail.com",
+    "preferences": {
+        "kpis": [
+            "GMV",
+            "CAC",
+            "LTV"
+        ],
+        "marketplaces": [
+            "Amazon",
+            "Flipkart"
+        ],
+        "categories": [
+            "Electronics",
+            "Fashion"
+        ]
+    },
+    "_id": "699b05031cf6d24081475c08",
+    "createdAt": "2026-02-22T13:30:43.794Z",
+    "updatedAt": "2026-02-22T13:30:43.794Z",
+    "__v": 0
+}

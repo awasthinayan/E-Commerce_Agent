@@ -10,7 +10,7 @@ export class UserRepository {
   }
 
   async updatePreferences(id: string, preferences: any) {
-    return User.findByIdAndUpdate(id, { preferences }, { new: true });
+    return User.findByIdAndUpdate(id, { preferences }, { new: true, runValidators: true });
   }
 
   async getAllUsers() {

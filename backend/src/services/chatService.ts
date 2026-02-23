@@ -21,16 +21,22 @@ export class ChatService {
       content: query
     });
 
-    const aiResult = await this.aiService.research(query, mode);
+const aiResult = await this.aiService.research(query, mode);
 
-    await this.messageRepo.create({
-      conversationId: conversation._id,
-      role: "assistant",
-      content: aiResult.result,
-      tokens: aiResult.tokens,
-      cost: aiResult.cost,
-      confidence: aiResult.confidence
-    });
+console.log("AI RESULT FULL:", JSON.stringify(aiResult, null, 2));
+
+if (!aiResult?.response) {
+  throw new Error("AI returned empty response");
+}
+
+await this.messageRepo.create({
+  conversationId: conversation._id,
+  role: "assistant",
+  content: aiResult.response,
+  tokens: aiResult.tokens,
+  cost: aiResult.cost,
+  confidence: aiResult.confidence
+});
 
     return {
       conversationId: conversation._id,

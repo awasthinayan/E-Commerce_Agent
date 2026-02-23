@@ -1,11 +1,11 @@
-version: "3.9"
-
 services:
   mongo:
     image: mongo
     container_name: mongo
     ports:
-      - "27017:27017"
+      - "27018:27017"
+    volumes:
+      - mongo-data:/data/db
 
   qdrant:
     image: qdrant/qdrant
@@ -43,3 +43,9 @@ services:
       - QDRANT_PORT=6333
     volumes:
       - ./Ai-Services:/app
+
+
+# 🔥 THIS MUST BE AT ROOT LEVEL (NOT INSIDE services)
+
+volumes:
+  mongo-data:
