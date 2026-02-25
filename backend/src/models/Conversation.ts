@@ -12,8 +12,8 @@ const conversationSchema = new mongoose.Schema(
 
     mode: {
       type: String,
-      enum: ["quick", "deep"],
-      default: "quick"
+      enum: ["thorough", "fast"],  // ✅ CHANGED from ["quick", "deep"]
+      default: "thorough"
     }
   },
   { timestamps: true }

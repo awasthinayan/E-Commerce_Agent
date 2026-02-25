@@ -19,6 +19,10 @@ app.use("/api/chat", chatRoutes);
 app.use("/api", userRoutes);
 app.use("/ai", aiRoute);
 
+app.get("/health", (req, res) => {
+  res.send("Hello World!");
+});
+
 app.use(errorHandler);
 
 app.listen(PORT, () => {

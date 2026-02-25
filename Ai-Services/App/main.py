@@ -1,3 +1,10 @@
+# ============================================
+# FILE: main.py (Updated)
+# ============================================
+
+import os
+from urllib import response
+from groq import Groq
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import Optional
@@ -16,20 +23,32 @@ vector_service = VectorService()
 research_service = ResearchService(llm_service, vector_service)
 
 
+# ✅ UPDATED: Accept context parameter
 class ResearchRequest(BaseModel):
     query: str
-    mode: Optional[str] = "thorough"  # "fast" or "thorough"
+    mode: Optional[str] = "thorough"
+    context: Optional[str] = ""  # ✅ NEW: Conversation history
 
 
 @app.post("/research")
 async def research(req: ResearchRequest):
-    result = research_service.run(req.query, req.mode)
 
-    content = result["choices"][0]["message"]["content"]
+    # ✅ Pass context to research service
+    result = research_service.run(req.query, req.mode, req.context)
+
+    # If result is full LLM JSON
+    if isinstance(result, dict) and "choices" in result:
+        content = result["choices"][0]["message"]["content"]
+        tokens = result.get("usage", {}).get("total_tokens", 0)
+
+    # If result is already extracted text
+    else:
+        content = result
+        tokens = 0
 
     return {
         "response": content,
-        "tokens": result["usage"]["total_tokens"],
+        "tokens": tokens,
         "cost": 0,
         "confidence": 0.95
     }
