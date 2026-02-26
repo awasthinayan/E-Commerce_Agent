@@ -63,8 +63,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Testing Data 
 
 {
-    "name": "Nayan Awasthi",
-    "email": "nayanawasthi2015@gmail.com",
+    "name": "Test",
+    "email": "test@gmail.com",
     "preferences": {
         "kpis": [
             "GMV",
