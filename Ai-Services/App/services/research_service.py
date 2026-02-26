@@ -47,6 +47,5 @@ User's current question:
 Remember to acknowledge previous messages if relevant to the current question.
 Be helpful, professional, and provide actionable insights.
 """
-
         # 4️⃣ Generate answer
         return self.llm.generate(prompt)
