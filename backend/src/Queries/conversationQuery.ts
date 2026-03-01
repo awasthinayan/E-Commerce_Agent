@@ -19,4 +19,9 @@ export class ConversationRepository {
   async findAllByUserId(userId: string) {
     return Conversation.find({ userId }).sort({ createdAt: -1 });
   }
+
+  async deleteConversation(id: string) {
+    return Conversation.deleteOne({ _id: id });
+  } 
 }
+
